@@ -3,22 +3,22 @@
 #
 
 # Name of your site (displayed in the header)
-name: "goldstine's blog"
+name: "一只大废柴的博客"
 # Short bio or description (displayed in the header)
-description: "个人技术公众号：Goldstine  分享编程资源 | 学习路线"
+description: "以中有足乐者，不知口体之奉不若人也"
 
 #
 # Flags below are optional
 #
 
-# URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://cdn.jsdelivr.net/gh/goldstine/goldstine.github.io/images/0.png
+# URL of your avatar or profile pic (you could use your GitHub profile pic) 你的头像
+avatar: https://avatars.githubusercontent.com/u/108506893?v=4
 # 你的favicon（出现在浏览器tab上）图片URL，建议使用较小(64px × 64px)的图片
-favicon: https://cdn.jsdelivr.net/gh/goldstine/goldstine.github.io/images/favicon.ico
+# favicon: https://cdn.jsdelivr.net/gh/goldstine/goldstine.github.io/images/favicon.ico
 
 # Tabs in header. There are 'Blog', 'About', 'Archive', 'Tags'
 # and URL Link(e.g. 'Theme' tab below) tabs. If you don't need one, just delete
-# it from the list(Delete '- name: ' and 'url: ', too!)
+# it from the list(Delete '- name: ' and 'url: ', too!) 导航栏目
 navigation:
   - name: 首页
     url: /
@@ -28,14 +28,14 @@ navigation:
     url: /archive
   - name: 标签
     url: /tags
-  - name: Img
-    url: /photos
-  - name: Music
-    url: /music
-  - name: Video
-    url: /video
-  - name: 导航
-    url: /navigation
+  # - name: Img
+  #   url: /photos
+  # - name: Music
+  #   url: /music
+  # - name: Video
+  #   url: /video
+  # - name: 导航
+  #   url: /navigation
 
 # Pagination
 paginate: 8
@@ -47,11 +47,11 @@ footer-links:
   #weibo: frommidworld #请输入你的微博个性域名 https://www.weibo.com/<thispart>
   behance: # https://www.behance.net/<username>
   dribbble:
-  zhihu: goldstine
-  email: 15797899690@163.com
+  zhihu: 一只大废柴
+  email: ljr_88@outlook.com
   facebook:
   flickr:
-  github: goldstine 
+  github: AbigFirewood
   googleplus: # anything in your profile username that comes after plus.google.com/
   instagram:
   linkedin:
@@ -71,10 +71,10 @@ disqus: # fromendworld
 
 # Gitalk
 gitalk:
-  clientID: 062eeb9a0adf39976274
-  clientSecret: 3c319e4cf4a90b70809d7fd1b25e4c6c10376a10
-  repo: goldstine.github.io
-  owner: goldstine
+  clientID: Ov23liRcgMXgyF9OSMsz
+  clientSecret: de7647c4c55514e95193b60d7e22f8abee6ac8bf
+  repo: AbigFirewood.github.io
+  owner: AbigFirewood
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 #google_analytics: 
