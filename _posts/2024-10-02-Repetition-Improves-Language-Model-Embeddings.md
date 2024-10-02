@@ -36,6 +36,61 @@ arXiv:2402.15449
 [代码链接](https:%20//github.com/jakespringer/echo-embeddings.)
 
 example.py
+```python
+from echo_embeddings import EchoEmbeddingsMistral, EchoPooling, EchoParser
+import torch
+
+templates = {  # 这里因为解析器的原因没法贴全 
+    'query': '<s>Instruct:{}\nQuery:{}\nQuery again:{}{</s>}',
+    'document': '<s>Document:{!}\nDocument again:{}{</s>}',
+}
+
+# Create the model  需要加载hf模型
+path_to_model = 'jspringer/echo-mistral-7b-instruct-lasttoken'
+model = EchoEmbeddingsMistral.from_pretrained(path_to_model)
+model = model.eval()
+
+# Create the parser 主要负责将文字变成embeding   
+parser = EchoParser(path_to_model, templates, max_length=300)
+
+# Create the pooling: strategy can either be mean or last  主要负责将嵌入提取出来
+pooling = EchoPooling(strategy='last')
+
+# specify the prompt, queries, and documents  例子
+prompt = 'Retrieve passages that answer the question'
+queries = [
+    'What is the capital of France?',
+    'What is the capital of Deutschland?',
+]
+documents = [
+    'Paris is the capital of France.',
+    'Berlin is the capital of Germany.',
+]
+
+query_variables = [{'prompt': prompt, 'text': q} for q in queries]
+document_variables = [{'text': d} for d in documents]
+
+query_tagged = [('query', q) for q in query_variables]
+document_tagged = [('document', d) for d in document_variables]
+
+# Get the tokenized embeddings   
+# 先输入到parser中 获取token化后的文字 然后放进model中获取所有文字的嵌入 最后pooling获取需要的结果
+with torch.no_grad():
+    query_embeddings = pooling(model(parser(query_tagged)))['sentence_embedding']
+    document_embeddings = pooling(model(parser(document_tagged)))['sentence_embedding']
+
+# compute the cosine similarity  计算各种余弦相似度
+sim = lambda x, y: torch.dot(x, y) / (torch.norm(x) * torch.norm(y))
+
+print('Similarity between the queries and documents:')
+for i, q in enumerate(queries): #  两两配对
+    for j, d in enumerate(documents):
+        similarity_score = sim(query_embeddings[i], document_embeddings[j])
+        print('Computing similarity between:')
+        print(f'  - {q}')
+        print(f'  - {d}')
+        print(f'  Cosine similarity: {similarity_score:.4f}')
+```
 
 ### 如何从预训练模型中提取嵌入？
 就是从最后一层隐藏层的激活中提取嵌入入 代码如下：
