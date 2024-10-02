@@ -1,10 +1,11 @@
 ---
 layout: post
 title: "论文阅读-Repetition Improves Language Model Embeddings"
-date:   2022-11-22
+date:   2024-10-02
 tags: [论文阅读]
 comments: true
 author: 一只大废柴
+toc: true
 ---
 # 总体
 ## 文献出处
