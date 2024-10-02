@@ -7,6 +7,8 @@ comments: true
 author: 一只大废柴
 toc: true
 ---
+
+<!-- more -->
 # 总体
 ## 文献出处
 arXiv:2402.15449
@@ -34,6 +36,7 @@ arXiv:2402.15449
 [代码链接](https:%20//github.com/jakespringer/echo-embeddings.)
 
 example.py
+
 ```
 from echo_embeddings import EchoEmbeddingsMistral, EchoPooling, EchoParser
 import torch
