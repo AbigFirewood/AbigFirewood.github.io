@@ -3,7 +3,6 @@ layout: page
 title: About
 permalink: /about/
 ---
-# 我是一只大废柴
 ## 关于我
 你好，我是一只大废柴，初出茅庐的码农。
 这个blog主要用来记录我的科研和技术学习笔记。
