@@ -37,7 +37,7 @@ arXiv:2402.15449
 
 example.py
 
-```python
+```html
 from echo_embeddings import EchoEmbeddingsMistral, EchoPooling, EchoParser
 import torch
 
@@ -110,6 +110,6 @@ for i, q in enumerate(queries): #  两两配对
 ### 如何从预训练模型中提取嵌入？
 就是从最后一层隐藏层的激活中提取嵌入入 代码如下：
 
-```python
+```html
  outputs = self.model(**inputs).last_hidden_state
 ```
